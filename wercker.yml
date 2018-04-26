@@ -9,11 +9,11 @@ build:
     - script:
       name: copy source
       code: |
-        cp -a . ${WERCKER_OUTPUT_DIR}
+        cp -r . ${WERCKER_OUTPUT_DIR}
         ls -l ${WERCKER_OUTPUT_DIR}
 
 deploy:
-  box: node:latest
+  box: node:8.9.4
   steps:
     - script:
       name: copy to /usr/src/app
@@ -31,5 +31,6 @@ deploy:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
+        working-dir: /usr/app/src
         cmd: npm run serve-prod
-        ports: "3000"
+        ports: "8082"
