@@ -14,6 +14,7 @@ build:
 deploy:
   box: node:8.9.4
   steps:
+    - npm-install
     - script:
       name: copy to /app
       code: |
@@ -31,5 +32,5 @@ deploy:
         password: $DOCKER_PASSWORD
         tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         working-dir: /app
-        cmd: npm install && npm run serve-prod
+        cmd: npm run serve-prod
         ports: "8082"
