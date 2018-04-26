@@ -24,7 +24,7 @@ deploy:
         cp -r . /usr/app/src
         ls -la /usr/app/src
     - script:
-      cwd: /usr/src/app
+      cwd: /usr/app/src
     - internal/docker-push:
         repository: schmidtp0740/moei_portals
         registry: https://registry.hub.docker.com/v2
