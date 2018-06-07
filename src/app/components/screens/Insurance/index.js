@@ -214,7 +214,7 @@ class Insurance extends Component {
             </FlexRow>
           </Card>
         );
-      })
+      }).reverse()
     }
     return(
       <div>
