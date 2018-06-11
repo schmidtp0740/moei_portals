@@ -21,28 +21,12 @@ import DoctorSplash from '../../images/doctorsplashkeyboard.jpg';
 import MedicalSplash from '../../images/medicalbackground.jpg';
 import Fawkes from '../../images/fawkesmask.png';
 import Cancel from '../../images/circleslash.png';
-// import styled from 'styled-components';
-
-
-
-
 
 import {Link, Redirect} from "react-router-dom";
 // import { checkLoginOCI } from '../../../redux';
 const {Header, Content} = Layout;
 const FormItem = Form.Item;
 
-// import renderIf from 'render-if'
-
-// const Flex1 = styled.div`
-//   flex: 1
-// `;
-
-// const FlexColumn = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   text-align:center;
-// `
 
 
 class Main extends Component {

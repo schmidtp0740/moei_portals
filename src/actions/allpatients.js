@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import envDATA from "../../../../env.json"
+import envDATA from "../env.json"
 
 console.log("backend  URL: ", window.location.hostname)
 const url = "http://"+ window.location.hostname + ':8080/pd';

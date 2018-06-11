@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from '../../../style/images/logo.png';
+import logo from '../../images/logo.png';
 import {
     Form,
     Icon,
@@ -14,14 +14,18 @@ import {
     Col,
     Menu
   } from 'antd';
-  import {headStyles, cardStyles, contentStyles, medusa, layoutStyles} from '../../../style/MainStyles.js';
   import { connect } from 'react-redux'
   import './DoctorScreen.css'
   import renderIf from 'render-if'
 //   import styled, { keyframes }  from 'styled-components';
   
   import {Link, Redirect} from "react-router-dom";
-//   import { getPATIENTINFO, getALLPATIENTS, getRXINFO, submitRX, getINSURANCE } from '../../../redux';
+  import { getALLPATIENTS } from '../../actions/allpatients';
+  import { submitRX } from '../../actions/submitrx';
+  import { getPATIENTINFO } from '../../actions/patientinfo';
+  import { getRXINFO } from '../../actions/rxinfo';
+  import { getINSURANCE } from '../../actions/insurance';
+
   const {Header, Content} = Layout;
   const FormItem = Form.Item;
   
@@ -223,7 +227,6 @@ import {
           requestpatientinfo: true
         }, ()=>{
           this.props.getpatientinfo({firstname: this.state.selectedFirstName, lastname: this.state.selectedLastName})
-          console.log("INSIDE handleGetPatient AND CALLING GETINSURANCE");
           console.log("AND VALUE OF PATIENT_INFO ID: ", this.state.patientinfoID);
           this.state.allpatients.forEach(patient=>{
             if(patient.firstName===this.state.selectedFirstName&&patient.lastName===this.state.selectedLastName){

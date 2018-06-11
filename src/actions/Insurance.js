@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import envDATA from "../../../../env.json"
+import envDATA from "../env.json"
 
 export const getINSURANCE = (payload) => {
   return (dispatch) => {
