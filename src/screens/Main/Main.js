@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from '../../../style/images/logo.png';
 import {
   Form,
   Icon,
@@ -12,38 +11,38 @@ import {
   Col,
   Menu
 } from 'antd';
-import {headStyles, cardStyles, contentStyles, medusa, layoutStyles} from '../../../style/MainStyles.js';
+// import {headStyles, cardStyles, contentStyles, medusa, layoutStyles} from '../../../style/MainStyles.js';
 import { connect } from 'react-redux';
-import "../../../style/fonts/fontface.css";
+// import "../../../style/fonts/fontface.css";
 import './Main.css';
-import GreenCloud from '../../../style/images/GreenCloud.png';
-import DoctorSplash from '../../../style/images/doctorsplashkeyboard.jpg';
-import MedicalSplash from '../../../style/images/medicalbackground.jpg';
-
-import Fawkes from '../../../style/images/fawkesmask.png';
-import Cancel from '../../../style/images/circleslash.png';
-import styled from 'styled-components';
+import logo from '../../images/logo.png';
+import GreenCloud from '../../images/GreenCloud.png';
+import DoctorSplash from '../../images/doctorsplashkeyboard.jpg';
+import MedicalSplash from '../../images/medicalbackground.jpg';
+import Fawkes from '../../images/fawkesmask.png';
+import Cancel from '../../images/circleslash.png';
+// import styled from 'styled-components';
 
 
 
 
 
 import {Link, Redirect} from "react-router-dom";
-import { checkLoginOCI } from '../../../redux';
+// import { checkLoginOCI } from '../../../redux';
 const {Header, Content} = Layout;
 const FormItem = Form.Item;
 
 // import renderIf from 'render-if'
 
-const Flex1 = styled.div`
-  flex: 1
-`;
+// const Flex1 = styled.div`
+//   flex: 1
+// `;
 
-const FlexColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align:center;
-`
+// const FlexColumn = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   text-align:center;
+// `
 
 
 class Main extends Component {
@@ -244,7 +243,7 @@ class Main extends Component {
         </div>
 
 
-        <Card title="Portal" bordered={false} style={{width: "20vw", left: "77vw", top: "60vh", backgroundColor: "#1989AC"}}>
+        {/* <Card title="Portal" bordered={false} style={{width: "20vw", left: "77vw", top: "60vh", backgroundColor: "#1989AC"}}>
           <FlexColumn>
             <Flex1>
               <Button type="secondary" size="large" onClick={()=>this.setState({redirect: "doctor"})}>
@@ -268,7 +267,7 @@ class Main extends Component {
               </Button>
             </Flex1>
           </FlexColumn>
-        </Card>
+        </Card> */}
         {/* {renderIf(this.state.redirect==="doctor")(
           <Redirect to='/doctor' />
         )}
