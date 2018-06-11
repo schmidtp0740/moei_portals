@@ -33,7 +33,7 @@ import { checkLoginOCI } from '../../../redux';
 const {Header, Content} = Layout;
 const FormItem = Form.Item;
 
-import renderIf from 'render-if'
+// import renderIf from 'render-if'
 
 const Flex1 = styled.div`
   flex: 1
@@ -46,7 +46,7 @@ const FlexColumn = styled.div`
 `
 
 
-class Entry extends Component {
+class Main extends Component {
   constructor() {
     super();
     this.state = {
@@ -269,7 +269,7 @@ class Entry extends Component {
             </Flex1>
           </FlexColumn>
         </Card>
-        {renderIf(this.state.redirect==="doctor")(
+        {/* {renderIf(this.state.redirect==="doctor")(
           <Redirect to='/doctor' />
         )}
         {renderIf(this.state.redirect==="pharmacist")(
@@ -280,7 +280,7 @@ class Entry extends Component {
         )}
         {renderIf(this.state.redirect==="insurance")(
           <Redirect to='/insurance' />
-        )}
+        )} */}
       </div>
     );
   }
@@ -301,5 +301,5 @@ function mapStateToProps(state) {
 
 export default (connect(
     mapStateToProps, mapDispatchToProps)(
-    Entry
+    Main
 ))
