@@ -96,11 +96,11 @@ class Main extends Component {
         </Card>
 
 
-        <div style={{position: "absolute", width: "25vw", height: "35vh", backgroundColor: "#E8F1F5", top: "10vh", left: "25vw", borderRadius: "20%"}}>
+        <div style={{position: "absolute", width: "26vw", height: "85vh", backgroundColor: "#E8F1F5", top: "10vh", left: "25vw", borderRadius: "5%"}}>
           <div style={{position: "relative", left: "10%", fontWeight: "bold", fontSize: "3vh", top: "2.5%", opacity: "0.6"}}>
-            <p>
+            <div>
               Oracle Blockchain Network
-            </p>
+            </div>
           </div>
         </div>
 
@@ -174,7 +174,7 @@ class Main extends Component {
         <div style={{position: "absolute", width: "0.5vw", height: "15vh", transform: "rotate(-15deg)", backgroundColor: "black", left: "39.2vw", top: "15vh"}}/>
 
 
-        <div style={{position: "absolute", width: "25vw", height: "45vh", backgroundColor: "#E8F1F5", top: "50vh", left: "25vw", borderRadius: "20%", overflow: "hidden", overflowY: "scroll"}}>
+        <div style={{position: "absolute", width: "25vw", height: "45vh", top: "50vh", left: "25vw", borderRadius: "20%", overflow: "hidden", overflowY: "scroll"}}>
           <div style={{position: "relative", left: "10%", fontWeight: "bold", fontSize: "2vh", top: "5%", opacity: "0.6"}}>
             <p>
               Code
