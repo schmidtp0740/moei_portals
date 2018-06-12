@@ -1,0 +1,71 @@
+box:
+ id: node:latest
+ ports:
+   - "8000"
+
+build:
+  steps:
+    - script:
+      name: copy source
+      code: |
+        cp -r . ${WERCKER_OUTPUT_DIR}
+        ls -l ${WERCKER_OUTPUT_DIR}
+
+deploy:
+  box: node:9.11.1
+  steps:
+    - npm-install
+    - script:
+      name: copy to /app
+      code: |
+        pwd
+        ls -la ./
+        mkdir -p /app
+        cp -r . /app
+        ls -la /app
+    - script:
+      cwd: /app
+    - internal/docker-push:
+        repository: schmidtp0740/moei_portals
+        registry: https://registry.hub.docker.com/v2
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        tag: ${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
+        working-dir: /app
+        # TODO
+        # need to change from npm start to npm build then run
+        cmd: npm start
+        ports: "8000"
+    - script:
+        name: debug
+        code: |
+          echo $WERCKER_ROOT
+          ls -l $WERCKER_ROOT
+    - bash-template:
+        cwd: $WERCKER_ROOT/kubernetes
+    - script:
+        name: Remove template files
+        cwd: $WERCKER_ROOT/kubernetes
+        code: |
+          rm *.template.yaml
+    - create-file:
+        name: Create admin.pem
+        cwd: $WERCKER_ROOT/kubernetes
+        filename: admin.pem
+        content: $KUBE_ADMIN
+    - create-file:
+        name: Create admin-key.pem
+        cwd: $WERCKER_ROOT/kubernetes
+        filename: admin-key.pem
+        content: $KUBE_ADMIN_KEY
+    - kubectl:
+        cwd: $WERCKER_ROOT/kubernetes
+        server: ${KUBE_ENDPOINT}
+        client-certificate: admin.pem
+        client-key: admin-key.pem
+        insecure-skip-tls-verify: true
+        command: apply -f .
+    - script:
+        name: cleanup
+        cwd: $WERCKER_ROOT/kubernetes
+        code: rm -rf *.pem deployment.yaml
