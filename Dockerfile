@@ -1,8 +1,8 @@
-FROM node:8.9.4
+FROM node:9.11.1
 
 WORKDIR /portals
-COPY package.json /portals/package.json
+COPY package.json .
 RUN npm install
-COPY . /portals
+COPY . .
 
 CMD ["npm", "start"]
