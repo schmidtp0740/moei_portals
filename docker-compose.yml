@@ -4,17 +4,17 @@ services:
   backend:
     container_name: backend
     image: schmidtp0740/moei_backend:master-c86a00f28ed9f456f6e437e8095950a690bd6548
-    command: nodemon -L
+    command: ./app
     ports:
       - "8080:8080"
   portals:
     container_name: portals
     build: .
-    command: npm start
+    command: "npm start"
     ports:
-      - "3000:3000"
+      - "8000:8000"
     depends_on:
       - backend
     volumes:
-      - "./portals/:/portals/"
       - "/portals/node_modules"
+      - "./:/portals"
