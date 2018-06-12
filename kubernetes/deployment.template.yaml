@@ -1,20 +1,22 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: moei-portals-dev-deployment
+  name: moei-portals-deployment
 spec:
   selector:
     matchLabels: 
-      app: moei-dev
+      app: moei
   replicas: 2
   template:
     metadata:
       labels:
-        app: moei-dev
+        app: moei
     spec:
       containers:
       - name: portals
         image: schmidtp0740/moei_portals:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
-        - containerPort: 8000
+        # TODO
+        # need to verify if prod port runs on 3000
+        - containerPort: 3000
