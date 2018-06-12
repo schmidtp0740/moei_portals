@@ -1,7 +1,9 @@
 box:
  id: node:latest
  ports:
-   - "8000"
+  # TODO
+  # need to verify if prod port runs on 3000
+   - "3000"
 
 build:
   steps:
@@ -10,7 +12,6 @@ build:
       code: |
         cp -r . ${WERCKER_OUTPUT_DIR}
         ls -l ${WERCKER_OUTPUT_DIR}
-
 deploy:
   box: node:9.11.1
   steps:
@@ -35,7 +36,9 @@ deploy:
         # TODO
         # need to change from npm start to npm build then run
         cmd: npm start
-        ports: "8000"
+        # TODO
+        # need to verify if prod port runs on 3000
+        ports: "3000"
     - script:
         name: debug
         code: |
