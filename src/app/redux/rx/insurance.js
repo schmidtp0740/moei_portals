@@ -16,7 +16,7 @@ import envDATA from "../../../../env.json"
 export const getINSURANCE = (payload) => {
   return (dispatch) => {
     console.log('INSIDE INSURANCE value of payload.id: ', payload.id);
-    const url = envDATA.SERVER + '/insurance/'+payload.id;
+    const url = "http://"+ window.location.hostname + ':8080/insurance/'+payload.id;
     var sendurl = url;
     axios.get(sendurl)
     .then((response)=>{

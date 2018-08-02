@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import envDATA from "../../../../env.json"
 
-const url = envDATA.SERVER + '/rx'
+const url = "http://"+ window.location.hostname + ':8080' + '/rx'
 
 //WHY ARE WE DOING THIS???
 
