@@ -65,4 +65,4 @@ deploy:
     - script:
         name: cleanup
         cwd: $WERCKER_ROOT/kubernetes
-        code: rm -rf *.pem deployment.yaml
+        code: rm -rf *.pem deployment.yaml 
